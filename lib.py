@@ -52,8 +52,12 @@ def get_sum(numbers):
         return
 
     res = 0
-    for num in numbers:
-        res += num
+
+    try:
+        for num in numbers:
+            res += num
+    except ArithmeticError:
+        res = 0
 
     return res
 
