@@ -1,0 +1,1 @@
+![example workflow](https://github.com/Rysyach/-3-/actions/workflows/python-app.yml/badge.svg)
