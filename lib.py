@@ -2,6 +2,7 @@ def read_file(file_path):
     f = open(file_path)
     lines = f.readlines()
     f.close()
+
     return lines
 
 
@@ -48,7 +49,7 @@ def get_max(numbers):
 
 def get_sum(numbers):
     if len(numbers) == 0:
-        return 0
+        return
 
     res = 0
     for num in numbers:
@@ -59,7 +60,7 @@ def get_sum(numbers):
 
 def get_multiply(numbers):
     if len(numbers) == 0:
-        return 0
+        return
 
     res = 1
 
