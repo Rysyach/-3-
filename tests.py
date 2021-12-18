@@ -46,6 +46,7 @@ def test_get_multiply(test_data, expected):
 @pytest.mark.parametrize("test_data, expected", [
     (["1", "2 3", "4"], [1, 2, 3, 4]),
     (["a1", "2", "3"], [2, 3]),
+    (["", "2", " 3", "10"], [2, 3, 10]),
     ([], [])
 ])
 def test_prepare_lines(test_data, expected):
@@ -53,20 +54,15 @@ def test_prepare_lines(test_data, expected):
 
 
 def test_performance():
-    f = open('data.txt', 'w')
-    test_data = np.random.randint(1, 101, 100)
-    f.write(str(test_data)[1:-1])
+    test_data = np.random.randint(1, 10, 5)
     start = datetime.datetime.now()
-    run('data.txt')
+    get_sum(test_data)
     finish = datetime.datetime.now()
     result_1 = finish - start
-    f.close()
-    f = open('data.txt', 'w')
-    test_data = np.random.randint(1, 101, 1000)
-    f.write(str(test_data)[1:-1])
+
+    test_data = np.random.randint(1, 10, 5000)
     start = datetime.datetime.now()
-    run('data.txt')
+    get_sum(test_data)
     finish = datetime.datetime.now()
     result_2 = finish - start
     assert result_2 > result_1
-    f.close()
