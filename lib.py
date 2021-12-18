@@ -10,10 +10,12 @@ def prepare_lines(lines):
     numbers = []
     for line in lines:
         line.replace('\n', '')
-        chars = line.split(' ')
-        for char in chars:
+        str_numbers = line.split(' ')
+        for str_number in str_numbers:
             try:
-                num = int(char)
+                if str_number == '':
+                    continue
+                num = int(str_number)
                 numbers.append(num)
             except ValueError:
                 print("Wrong value")
